@@ -1,69 +1,33 @@
-#include bitsstdc++.h
+#include <iostream>
+#define ll long long
 using namespace std;
-#define bitcount(x) __builtin_popcount(x)
-#define ll long long int
-#define INF 1000000007
-#define PI 3.1415926535897932384626
-#define endl n
-#define all(v) (v).begin(),(v).end()
-#define mems(x, y) memset(x, y, sizeof(x))
-const int mxN=5e4;
-typedef pairint, intpii;
-typedef pairll, llpl;
-typedef vectorintvi;
-typedef vectorllvl;
-typedef vectorpii	vpii;
-typedef vectorplvpl;
-typedef vectorvivvi;
-typedef vectorvlvvl;
-int main()
-{
-    ios_basesync_with_stdio(false);
-   	cin.tie(NULL);
-   	cout.tie(0);
-   	long long int t;
-   	cint;
-   	while(t--)
-    {
-        int n,k,flag=0,sum=0;
-        cinnk;
-        int a[n]={};
-        for(int i=0;in;i++)
-        {
-           cina[i];
-           sum=sum+a[i];
-           if(a[i]k)
-           {
-             flag=1;
-           }
-        }   
-        if(flag==1)
-        {
-          cout-1endl;
-        }
-        else
-        {
-          int k1=0;
-          while(sum!=0)
-          {
-            sum=0;
-            for(int i=0;in;i++)
-            {
-              sum=sum+a[i];
-              if(sumk)
-              {
-                  break;
-              }
-              else
-              {
-                a[i]=0;
-              }
-            }
-             k1++;
-          }
-          k1--;
-          coutk1endl;
-        }
+
+int main(){
+  ll t;
+  cin>>t;
+  while(t--){
+    ll n, k;
+    cin>>n>>k;
+    ll inhand=0,w,count=0;
+    int a[n];
+    for(int i=0; i<n; i++){
+      cin>>a[i];
     }
-   	return 0;
+    for(ll i=0; i<n; i++){
+      w=a[i];
+      if(w>k){
+        cout<<-1<<endl;
+        break;
+      } else {
+        if(k-inhand>=w){
+          inhand+=w;
+        } else {
+          count+=1;
+          inhand=w;
+        }
+        if(i==n-1) cout<<++count<<endl;
+      }
+    }
+  }
+  return 0;
 }
